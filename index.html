@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aisha Diop — AI Policy & Governance Writer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:           #F0EDE6;
+      --surface:      #E6E2DA;
+      --border:       #D3CEC5;
+      --text:         #1A1612;
+      --text-muted:   #6B6560;
+      --sage:         #5A7A56;
+      --sage-dim:     #8FAD8A;
+      --brown:        #9C7458;
+      --brown-hover:  #7A5438;
+      --brown-subtle: #F0E8E0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(240, 237, 230, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.03em;
+      color: var(--sage);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Lora', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--sage); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 12rem;
+      padding-bottom: 7rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 8vw, 5.4rem);
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--sage);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 2rem;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-symbol {
+      color: var(--brown);
+      font-size: 1.3rem;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.6rem;
+      background: var(--brown-subtle);
+      border: 1px solid var(--brown);
+      color: var(--brown);
+      font-family: 'Lora', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--brown);
+      color: var(--bg);
+      border-color: var(--brown);
+    }
+
+    .btn-substack {
+      background: #fff8f4;
+      border-color: var(--brown);
+      color: var(--brown);
+    }
+
+    .btn-substack:hover {
+      background: var(--brown);
+      color: #fff;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider-symbol {
+      color: var(--brown);
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ABOUT ── */
+    #about p {
+      color: var(--text);
+      margin-bottom: 1.2rem;
+      font-size: 1.02rem;
+    }
+
+    #about p:last-of-type { margin-bottom: 0; }
+
+    mark {
+      background: transparent;
+      color: var(--sage);
+      font-style: italic;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+
+    .skill-item {
+      background: var(--bg);
+      padding: 1.3rem 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .skill-item:hover { background: var(--surface); }
+
+    .skill-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── PUBLISHED WORK ── */
+    .work-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .work-item {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-item:first-child { border-top: 1px solid var(--border); }
+
+    .work-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-pub {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brown);
+    }
+
+    .work-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .work-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+
+    .work-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .work-title a:hover { color: var(--sage); }
+
+    .work-excerpt {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ── SUBSTACK ── */
+    #newsletter {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    .substack-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--brown);
+      padding: 2.5rem 2.5rem 2rem;
+    }
+
+    .substack-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 0.85rem;
+    }
+
+    .substack-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .substack-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+      max-width: 520px;
+    }
+
+    .substack-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    /* ── CONTACT / FOOTER ── */
+    #contact {
+      padding-top: 4rem;
+      padding-bottom: 5rem;
+      text-align: center;
+    }
+
+    #contact .section-label { margin-bottom: 0.75rem; }
+
+    .contact-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--sage);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sage-dim);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-email:hover {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .container { padding: 0 1.25rem; }
+      section { padding: 4rem 0; }
+      #hero { padding-top: 8rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .substack-card { padding: 1.75rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-name">Aisha Diop</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Writer &amp; Researcher</p>
+      <h1 class="hero-name">Aisha Diop</h1>
+      <p class="hero-title">AI Policy &amp; Governance</p>
+      <p class="hero-tagline">
+        Making the future of AI legible — for policymakers, practitioners, and the public. I write at the intersection of emerging technology, democratic accountability, and human rights.
+      </p>
+      <a href="#work" class="btn">View Published Work</a>
+      <span class="hero-symbol">✧</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-symbol">✧</span>
+        <span class="divider-line"></span>
+      </div>
+      <h2 class="section-label">About Me</h2>
+      <p class="section-sub">Background &amp; approach</p>
+
+      <p>
+        I'm a writer and researcher focused on <mark>AI governance, algorithmic accountability, and technology policy</mark>. My work explores how societies make decisions about powerful technologies — and whose voices shape those decisions.
+      </p>
+      <p>
+        Before moving into independent writing and research, I worked across civil society organizations and policy think tanks, advising on regulatory frameworks and contributing to public consultations at both national and international levels.
+      </p>
+      <p>
+        I write for general and specialist audiences alike. Whether drafting briefing papers for legislators or long-form essays for curious readers, I believe rigorous ideas don't require inaccessible language.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-symbol">✧</span>
+        <span class="divider-line"></span>
+      </div>
+      <h2 class="section-label">Skills</h2>
+      <p class="section-sub">Areas of expertise</p>
+
+      <div class="skills-grid">
+        <div class="skill-item">
+          <p class="skill-name">Policy Analysis</p>
+          <p class="skill-desc">Translating complex regulatory questions into clear, actionable findings for diverse audiences.</p>
+        </div>
+        <div class="skill-item">
+          <p class="skill-name">AI Ethics &amp; Bias</p>
+          <p class="skill-desc">Examining how algorithmic systems embed values and produce disparate outcomes across communities.</p>
+        </div>
+        <div class="skill-item">
+          <p class="skill-name">Regulatory Frameworks</p>
+          <p class="skill-desc">Comparative analysis of AI legislation across the EU, US, and emerging economies.</p>
+        </div>
+        <div class="skill-item">
+          <p class="skill-name">Technical Writing</p>
+          <p class="skill-desc">Making technical concepts accessible without sacrificing precision or depth.</p>
+        </div>
+        <div class="skill-item">
+          <p class="skill-name">International Governance</p>
+          <p class="skill-desc">Tracking multilateral institutions, global standards bodies, and cross-border coordination efforts.</p>
+        </div>
+        <div class="skill-item">
+          <p class="skill-name">Stakeholder Research</p>
+          <p class="skill-desc">Qualitative interviewing, civil society mapping, and participatory research methods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLISHED WORK -->
+  <section id="work">
+    <div class="container">
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-symbol">✧</span>
+        <span class="divider-line"></span>
+      </div>
+      <h2 class="section-label">Published Work</h2>
+      <p class="section-sub">Selected writing</p>
+
+      <div class="work-list">
+
+        <article class="work-item">
+          <div class="work-meta">
+            <span class="work-pub">MIT Technology Review</span>
+            <span class="work-date">March 2025</span>
+          </div>
+          <h3 class="work-title">
+            <a href="#">The Global AI Governance Gap: Why Consensus Is Harder Than It Looks</a>
+          </h3>
+          <p class="work-excerpt">
+            Despite a flurry of international AI summits and declarations, meaningful coordination remains elusive. This piece examines why shared values don't automatically translate into shared rules — and what a more durable framework might require.
+          </p>
+        </article>
+
+        <article class="work-item">
+          <div class="work-meta">
+            <span class="work-pub">Brookings Institution</span>
+            <span class="work-date">November 2024</span>
+          </div>
+          <h3 class="work-title">
+            <a href="#">Algorithmic Accountability in Public Services: Lessons from Three Jurisdictions</a>
+          </h3>
+          <p class="work-excerpt">
+            A comparative review of how the UK, Canada, and the Netherlands have approached transparency obligations for government-deployed AI — and what the divergences reveal about underlying assumptions of democratic oversight.
+          </p>
+        </article>
+
+        <article class="work-item">
+          <div class="work-meta">
+            <span class="work-pub">Rest of World</span>
+            <span class="work-date">July 2024</span>
+          </div>
+          <h3 class="work-title">
+            <a href="#">Who Writes the Rules? African Nations and the Battle for AI Standard-Setting</a>
+          </h3>
+          <p class="work-excerpt">
+            As the world races to define AI norms, a growing number of African policymakers are pushing back against frameworks designed without them in mind. Reporting from Nairobi, Accra, and Kigali.
+          </p>
+        </article>
+
+        <article class="work-item">
+          <div class="work-meta">
+            <span class="work-pub">The Guardian</span>
+            <span class="work-date">February 2024</span>
+          </div>
+          <h3 class="work-title">
+            <a href="#">AI Won't Fix the Welfare State — But It Could Make It Worse</a>
+          </h3>
+          <p class="work-excerpt">
+            Governments worldwide are piloting AI to streamline social services. The promise is efficiency; the risk is a system that automates exclusion. An essay on what's at stake when algorithms make decisions about human need.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER / SUBSTACK -->
+  <section id="newsletter">
+    <div class="container">
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-symbol">✧</span>
+        <span class="divider-line"></span>
+      </div>
+      <h2 class="section-label">Newsletter</h2>
+      <p class="section-sub">On Substack</p>
+
+      <div class="substack-card">
+        <p class="substack-eyebrow">Substack · @aishadiop</p>
+        <h3 class="substack-title">AI Policy, in Plain Language</h3>
+        <p class="substack-desc">
+          A space for op-eds, close readings of AI policy news, and personal narratives from the intersection of technology and governance. I write for people who want to think carefully about AI — without a technical background required. Expect analysis, opinion, and the occasional essay that resists easy conclusions.
+        </p>
+        <a href="https://substack.com/@aishadiop" target="_blank" rel="noopener noreferrer" class="btn btn-substack">
+          Read on Substack →
+        </a>
+        <p class="substack-count">2 articles published · more on the way</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="divider">
+        <span class="divider-line"></span>
+        <span class="divider-symbol">✧</span>
+        <span class="divider-line"></span>
+      </div>
+      <h2 class="section-label">Get in Touch</h2>
+      <p class="contact-text">
+        Open to commissions, collaborations, and speaking invitations.
+      </p>
+      <a href="mailto:hello@aishadiop.com" class="contact-email">hello@aishadiop.com</a>
+      <br/>
+      <a href="#work" class="btn">Read More Writing</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Aisha Diop &nbsp;·&nbsp; All rights reserved
+  </footer>
+
+</body>
+</html>
